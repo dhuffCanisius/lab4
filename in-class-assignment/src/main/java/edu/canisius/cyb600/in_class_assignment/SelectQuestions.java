@@ -20,7 +20,7 @@ public class SelectQuestions extends PostgresConnectionHandler {
      * @return a list of all the actors.
      */
     public List<Actor> getAllActors() {
-        return null;
+        return this.dbAdapter.getAllActors();
     }
 
     /**
@@ -29,7 +29,16 @@ public class SelectQuestions extends PostgresConnectionHandler {
      * @return A list of actor objects that share a last name.
      */
     public List<Actor> getAllActorsWithLastNameWithCode(String lastName) {
-        return null;
+        List<Actor> allActors = this.dbAdapter.getAllActors();
+        List<Actor> matchingActors = new java.util.ArrayList<>();
+
+        for (Actor actor : allActors) {
+            if (actor.getLastName().equalsIgnoreCase(lastName)) {
+                matchingActors.add(actor);
+            }
+        }
+
+        return matchingActors;
     }
 
     /**

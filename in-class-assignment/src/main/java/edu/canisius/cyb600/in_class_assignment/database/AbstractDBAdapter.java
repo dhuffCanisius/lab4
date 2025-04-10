@@ -23,4 +23,6 @@ public abstract class AbstractDBAdapter {
 
     //JOIN
     public abstract List<Film> getFilmsForActor(Actor actor);
+
+    public abstract List<Actor> getAllActors();
 }
